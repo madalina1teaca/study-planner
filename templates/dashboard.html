@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <!-- codarea caracterelor și titlul paginii -->
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <!-- fișierul de stilizare CSS - comun pentru toate paginile -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <!-- sucțiunea superioară a dashboard-ului -->
+    <div class="top-bar">
+
+        <!-- containerul cu titlul paginii -->
+        <div class="title-card">
+            <h1>Study Planner</h1>
+            <p>Organizează-ți taskurile mai ușor</p>
+        </div>
+
+    </div>
+
+    
+     <!-- containerul cu titlul secțiunii care afișează taskurile -->
+    <div class="tasks-title">
+        <h2>Taskurile mele</h2>
+        <p>Lista tuturor taskurilor tale</p>
+    </div>
+
+    <!-- sucțiunea de acțiuni a dashboard-ului -->
+    <div class="dashboard-actions">
+
+        <!-- butonul de adăugare a unui task nou -->
+        <a href="/add-task" class="btn primary-btn action-btn">
+            Adaugă task nou
+        </a>
+
+        <!-- butonul de ascundere a taskurilor -->
+        <button id="toggleTasks" class="btn secondary-btn action-btn">
+            Ascunde/Afișează taskurile
+        </button>
+
+    </div>
+
+    
+    <!-- tabelul care afișează taskurile -->
+    <table id="tasksTable">
+        <tr>
+            <th>Titlu</th>
+            <th>Descriere</th>
+            <th>Deadline</th>
+            <th>Status</th>
+            <th>Acțiuni</th>
+        </tr>
+
+        <!-- parcurge lista de taskuri primite din Flask -->
+        {% for task in tasks %}
+        <tr>
+
+            <!-- afișarea informațiilor fiecărui task -->
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.deadline }}</td>
+            
+            <!-- afișarea statusului într-un badge stilizat -->
+            <td>
+                <span class="status-badge">
+                    {{ task.status }}
+                </span>
+            </td>
+
+            <!-- acținile disponibile pentru fiecare task -->
+            <td>
+                
+                <!-- butonul de editare a taskului -->
+                <a href="/edit-task/{{ task.id }}" class="btn edit-btn">
+                    Editează
+                </a>
+
+                <!-- butonul de ștergere a taskului -->
+                <a href="/delete-task/{{ task.id }}" class="btn delete-btn delete-link">
+                    Șterge
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- butonul pentru deconectarea utilizatorului -->
+    <div class="logout-bottom">
+        <a href="/logout" class="btn logout-btn">
+            Logout
+        </a>
+    </div>
+
+    <!-- biblioteca jQuery - efecte și interactivitate -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- fișerul JS - peronalizat pentru aplicație -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

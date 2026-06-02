@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <!-- codarea caracterelor și titlul paginii -->
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <!-- fișierul de stilizare CSS - comun pentru toate paginile -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+     <!-- containerul principal al paginii -->
+    <div class="page-card">
+
+        <!-- titlul paginii -->
+        <h1 class="page-title">Autentificare</h1>
+
+        <!-- descrierea și scopul paginii -->
+        <p class="page-subtitle">
+            Intră în contul tău pentru a-ți gestiona taskurile
+        </p>
+
+        <!-- formularul de autentificare -->
+        <form method="POST" class="task-form">
+
+            <!-- câmpul de introducere a adresei de email -->
+            <input type="email"
+                   name="email"
+                   placeholder="Adresa de email"
+                   required>
+            
+            <!-- câmpul de introducere a parolei -->
+            <input type="password"
+                   name="password"
+                   placeholder="Parola"
+                   required>
+
+            <!-- butonul pentru transmiterea formularului -->
+            <button type="submit"
+                    class="btn primary-btn form-btn">
+                Intră în cont
+            </button>
+
+        </form>
+
+        <!-- linkul către pagina de înregistrare  -->
+        <p class="form-footer">
+            Nu ai cont?
+            <a href="/register">Înregistrează-te</a>
+        </p>
+
+    </div>
+
+</body>
+</html>

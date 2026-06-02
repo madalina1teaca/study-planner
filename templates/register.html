@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <!-- codarea caracterelor și titlul paginii -->
+    <meta charset="UTF-8">
+    <title>Înregistrare</title>
+    
+    <!-- fișierul de stilizare CSS - comun pentru toate paginile -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- containerul principal al paginii -->
+    <div class="page-card">
+
+        <!-- titlul paginii -->
+        <h1 class="page-title">Creează un cont</h1>
+
+        <!-- descrierea și scopul paginii -->
+        <p class="page-subtitle">
+            Înregistrează-te pentru a începe să îți organizezi taskurile
+        </p>
+
+        <!-- formularul de înregistrare -->
+        <form method="POST" class="task-form">
+
+            <!-- câmpul de introducere a usernamului -->
+            <input type="text"
+                   name="username"
+                   placeholder="Nume utilizator"
+                   required>
+
+            <!-- câmpul de introducere a adresei de email -->
+            <input type="email"
+                   name="email"
+                   placeholder="Adresa de email"
+                   required>
+
+            <!-- câmpul de introducere a parolei -->
+            <input type="password"
+                   name="password"
+                   placeholder="Parola"
+                   required>
+
+            <!-- butonul pentru transmiterea formularului -->
+            <button type="submit"
+                    class="btn primary-btn form-btn">
+                Creează cont
+            </button>
+
+        </form>
+
+        <!-- linkul către pagina de logare  -->
+        <p class="form-footer">
+            Ai deja cont?
+            <a href="/login">Autentifică-te</a>
+        </p>
+
+    </div>
+
+</body>
+</html>

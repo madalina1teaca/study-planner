@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <!-- codarea caracterelor și titlul paginii -->
+    <meta charset="UTF-8">
+    <title>Editează Taskul</title>
+
+    <!-- fișierul de stilizare CSS - comun pentru toate paginile -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- containerul principal al paginii -->
+    <div class="page-card">
+        
+        <!-- titlul și descrierea paginii -->
+        <h1 class="page-title">Editează taskul</h1>
+        <p class="page-subtitle">Modifică detaliile taskului selectat</p>
+
+        <!-- formularul de editare a unui task -->
+        <form method="POST" class="task-form">
+            
+            <!-- titlul taskului -->
+            <input type="text" name="title" value="{{ task.title }}" required>
+
+            <!-- descrierea taskului -->
+            <textarea name="description" required>{{ task.description }}</textarea>
+
+            <!-- deadlineul - data limită a  taskului -->
+            <input type="date" name="deadline" value="{{ task.deadline }}" required>
+
+            <!-- statusul taskului -->
+            <select name="status" required>
+                <option value="To do" {% if task.status == "To do" %}selected{% endif %}>To do</option>
+                <option value="În lucru" {% if task.status == "În lucru" %}selected{% endif %}>În lucru</option>
+                <option value="Finalizat" {% if task.status == "Finalizat" %}selected{% endif %}>Finalizat</option>
+            </select>
+
+            
+            <!--butonul de salvare a modificărilor -->
+            <button type="submit" class="btn primary-btn form-btn">
+                Actualizează task
+            </button>
+        </form>
+
+        <!-- butonul de revenire la dashboard -->
+        <a href="/dashboard" class="btn secondary-btn back-btn">
+            Înapoi la Dashboard
+        </a>
+    </div>
+
+</body>
+</html>

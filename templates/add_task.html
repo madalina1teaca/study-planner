@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <!-- codarea caracterelor și titlul paginii -->
+    <meta charset="UTF-8">
+    <title>Adaugă un Task</title>
+
+    <!-- fișierul de stilizare CSS - comun pentru toate paginile -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- containerul principal al paginii -->
+    <div class="page-card">
+
+         <!-- titlul și descrierea paginii -->
+        <h1 class="page-title">Adaugă un task nou</h1>
+        <p class="page-subtitle">
+            Creează un task nou și organizează-ți activitățile
+        </p>
+
+        <!-- formularul de adăugare a unui task -->
+        <form method="POST" class="task-form">
+
+            <!-- titlul taskului -->
+            <input type="text"
+                   name="title"
+                   placeholder="Titlu task"
+                   required>
+
+            <!-- descrierea taskului -->
+            <textarea name="description"
+                      placeholder="Descriere task"
+                      required></textarea>
+
+            <!-- deadlineul - data limită a  taskului -->
+            <input type="date"
+                   name="deadline"
+                   required>
+
+            <!-- statusul taskului -->
+            <select name="status" required>
+                <option value="To do">To do</option>
+                <option value="În lucru">În lucru</option>
+                <option value="Finalizat">Finalizat</option>
+            </select>
+
+            <!--butonul de salvare a taskului -->
+            <button type="submit"
+                    class="btn primary-btn form-btn">
+                Salvează task
+            </button>
+
+        </form>
+
+        <!-- butonul de revenire la dashboard -->
+        <a href="/dashboard"
+           class="btn secondary-btn back-btn">
+            Înapoi la Dashboard
+        </a>
+
+    </div>
+
+</body>
+</html>
