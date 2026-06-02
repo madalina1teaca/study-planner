@@ -96,7 +96,11 @@ source venv/bin/activate
 ``` python app.py```
 
 ## Deployment
-Aplicația este publicată online folosind **Railway**.
+Aplicația este publicată online folosind **Railway** și poate fi accesată prin linkul:
+[Study Planner](https://web-production-d55a6.up.railway.app)
+
+Repository **GitHub**:
+[Git Repo](https://github.com/madalina1teaca/study-planner)
 
 
 ## Autor
