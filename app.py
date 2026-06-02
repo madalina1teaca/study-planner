@@ -23,11 +23,11 @@ app.secret_key = "cheie_secreta_proiect"
 # realizează conexiunea la baza de date
 def get_db_connection():
     return pymysql.connect(
-        host=os.environ.get("MYSQLHOST", "localhost"),
-        user=os.environ.get("MYSQLUSER", "root"),
-        password=os.environ.get("MYSQLPASSWORD", "Madalina1"),
-        database=os.environ.get("MYSQLDATABASE", "study_planner"),
-        port=int(os.environ.get("MYSQLPORT", 3306)),
+        host=os.environ.get("MYSQLHOST"),
+        user=os.environ.get("MYSQLUSER"),
+        password=os.environ.get("MYSQLPASSWORD"),
+        database=os.environ.get("MYSQL_DATABASE"),
+        port=int(os.environ.get("MYSQLPORT")),
         cursorclass=pymysql.cursors.DictCursor
     )
 
