@@ -12,6 +12,7 @@ from flask import Flask, render_template, request, redirect, session
 
 # importarea pymysql pentru conectarea aplicației la baza de date mysql
 import pymysql
+import os
 
 # inițializează  aplicația Flask
 app = Flask(__name__)
@@ -22,10 +23,11 @@ app.secret_key = "cheie_secreta_proiect"
 # realizează conexiunea la baza de date
 def get_db_connection():
     return pymysql.connect(
-        host="localhost",
-        user="root",
-        password="Madalina1",
-        database="study_planner",
+        host=os.environ.get("MYSQLHOST", "localhost"),
+        user=os.environ.get("MYSQLUSER", "root"),
+        password=os.environ.get("MYSQLPASSWORD", "Madalina1"),
+        database=os.environ.get("MYSQLDATABASE", "study_planner"),
+        port=int(os.environ.get("MYSQLPORT", 3306)),
         cursorclass=pymysql.cursors.DictCursor
     )
 
